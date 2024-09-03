@@ -1,0 +1,56 @@
+@import "variables";
+
+@mixin br-mobile {
+  @media (width >= #{$br-mobile}px) {
+    @content
+  }
+}
+
+@mixin br-tablet {
+  @media (width >= #{$br-tablet}px) {
+    @content
+  }
+}
+
+@mixin br-desktop {
+  @media (width >= #{$br-desktop}px) {
+    @content
+  }
+}
+
+@mixin br-desktop-max {
+  @media (width >= #{$br-desktop-max}px) {
+    @content
+  }
+}
+
+@mixin hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin mobile-active {
+  @media (hover: none) or (pointer: coarse) {
+    &:active {
+      @content;
+    }
+  }
+}
+
+
+@mixin text-overflow($count: 1) {
+  overflow: hidden;
+
+  @if $count > 1 {
+    display: -webkit-box;
+
+    -webkit-line-clamp: $count;
+    -webkit-box-orient: vertical;
+  } @else {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
